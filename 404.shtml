@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <title>404 - L君还在说之乎者也</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" type="text/css" href="/static/css/global.css">
+</head>
+<body>
+<div id="container">
+    <p id="main-site"><a href="http://www.neatap.com">回到首页>></a></p>
+    <div class="category">
+        <p class="title">404 - sorry,file not found!</p>
+    </div>
+</div>
+</body>
+</html>

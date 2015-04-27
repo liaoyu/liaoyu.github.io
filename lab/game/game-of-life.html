@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Game of Life - L君还在说之乎者也</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/game-of-life.css">
+</head>
+<body>
+<div id="cellCanvas">
+    
+</div>
+<div id="rule">
+    <h3>Game of Life</h3>
+    <p>生命游戏是以基于细胞进行模拟，每个细胞周围最多有8个细胞，每个细胞有只有两种状态(活、死)，游戏规则如下：</p>
+    <ul>
+        <li>每个活着的细胞当其周围活着的细胞数量少于2时,变为死亡状态，理解为人口稀少。</li>
+        <li>每个活着的细胞当其周围活着的细胞数量大于3时, 变为死亡状态，理解为过度拥挤。</li>
+        <li>每个活着的细胞当其周围活着的细胞数量为2或者3时，继续存活。</li>
+        <li>每个状态为死的细胞当其周围有3个活着的细胞时，变为活着的状态，其它时候不变。</li>
+    </ul>
+    <p><a href="http://coderetreat.org/gol" target="_blank">更多信息</a></p>
+</div>
+<div id="toolbar">
+    <ul>
+        <li id="start">Start</li>
+        <li id="stop">Stop</li>
+        <li id="random">Random</li>
+        <li id="reset">Initial</li>
+    </ul>
+</div>
+
+<script type="text/javascript" src="/static/js/game-of-life.js"></script>
+</body>
+</html>
