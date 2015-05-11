@@ -1,0 +1,66 @@
+/*reset*/
+body, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, p, blockquote, pre, form, fieldset, legend, button, input, textarea, th, td {margin:0; padding:0;}
+ul, ol {list-style:outside none;}
+fieldset, img { border: 0; }
+table {border-collapse:collapse; border-spacing:0;}
+body {line-height:1.5;}
+h1, h2, h3, h4, h5, h6 {font-size:100%;}
+address, cite, dfn, em, var {font-style:normal;}
+code, kbd, pre, samp {font-family:Consolas, "Lucida Console", Courier, SimSun, monospace;}
+sup, sub {position:relative; vertical-align:baseline;}
+sup {top:-3px;}
+sub {bottom:-3px;}
+a{text-decoration:none; cursor:pointer;}
+a:hover,a:focus{text-decoration:underline;}
+.clearfix:after{content:"."; display:block; height:0; clear:both; visibility:hidden;}
+.clearfix{display:inline-block;}
+* html .clearfix{height:1%;}
+.clearfix{display:block;}
+.hidden{display:none;}
+
+/*index.html*/
+#container{
+    width: 65%;
+    position: relative;
+    margin: 0 auto;
+    min-width: 360px;
+    padding: 20px;
+    font-size: 14px;
+    background: #FFF;
+}
+#main-site{
+    height: 30px;
+    line-height: 30px;
+    font-size: 16px;
+}
+#main-site a{
+    text-decoration: none;
+    color: maroon;
+}
+#main-site a:hover{
+    color: green;
+}
+#container .category{
+    margin: 20px 0;
+}
+#container .category .title{
+    line-height: 60px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+#container .category .item-list li{
+    display: block;
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    list-style-type: none;
+}
+#container .category .item-list li a{
+    text-decoration: none;
+    color: maroon;
+}
+#container .category .item-list li a:hover{
+    color: #333;
+    text-decoration: underline;
+}
