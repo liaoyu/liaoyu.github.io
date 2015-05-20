@@ -2,27 +2,27 @@
 
 /* latin */
 @font-face {
-  font-family: 'Lato';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Lato Regular'), local('Lato-Regular'), url(http://fonts.gstatic.com/s/lato/v11/1YwB1sO8YE1Lyjf12WNiUA.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Lato Regular'), local('Lato-Regular'), url(http://fonts.gstatic.com/s/lato/v11/1YwB1sO8YE1Lyjf12WNiUA.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
 }
 /* latin */
 @font-face {
-  font-family: 'Lato';
-  font-style: normal;
-  font-weight: 700;
-  src: local('Lato Bold'), local('Lato-Bold'), url(http://fonts.gstatic.com/s/lato/v11/H2DMvhDLycM56KNuAtbJYA.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 700;
+    src: local('Lato Bold'), local('Lato-Bold'), url(http://fonts.gstatic.com/s/lato/v11/H2DMvhDLycM56KNuAtbJYA.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
 }
 
 body {
-  font-family: "Lato","HelveticaNeue","Helvetica Neue",sans-serif;
-  font-size: 14px;
-  line-height: 21px;
-  background-color: #fbfbfb;
-  color: #333333;
+    font-family: "Lato","HelveticaNeue","Helvetica Neue",sans-serif;
+    font-size: 14px;
+    line-height: 21px;
+    background-color: #fbfbfb;
+    color: #333333;
 }
 a {
     text-decoration: none;
@@ -35,9 +35,7 @@ a:hover {
 
 /*2. index*/
 .wrapper {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    max-width: 964px;
+    width: 964px;
     margin: 0px auto;
     min-height: 500px;
     position: relative;
@@ -47,20 +45,14 @@ a:hover {
 }
 .site-header {
     border-bottom: 1px solid #e8e8e8;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
     position: relative;
-    z-index: 1
 }
 .nav-bar {
     text-align: center;
 }
 .nav-bar a:hover {
     text-decoration: none;
-}
-.grid-item {
-    width: 100%;
-    vertical-align: top;
-    min-height: 1px;
 }
 #logo {
     display: block;
@@ -78,6 +70,8 @@ a:hover {
 #nav li {
     position: relative;
     display: inline-block;
+    zoom: 1;            /*let ie6/7 support inline-block*/
+    *display: inline;   /*step2*/
     padding: 2px 30px;
     border-left: 1px solid #e8e8e8;
 }
@@ -92,8 +86,10 @@ a:hover {
 .content a {
     color: #615AAB;
 }
-#show {
+#painting {
     height: 490px;
+    margin: 0 auto;
+    text-align: center;
 }
 #footer {
     margin: 20px 0;
@@ -113,4 +109,13 @@ a:hover {
 .description {
     text-indent: 2em;
     margin-bottom: 30px;
+}
+
+/*4. blog*/
+.article {
+    padding-left: 20px;
+    line-height: 26px;
+}
+.article .datetime {
+    margin-right: 10px;
 }
