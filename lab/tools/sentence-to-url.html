@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>英文句子解析成URL - L君还在说之乎者也</title>
+    <style type="text/css">
+        .wrapper {
+            width: 96%;
+            max-width: 964px;
+            margin: 0px auto;
+            position: relative;
+            font-size: 14px;
+        }
+        input {
+            width: 96%;
+            height: 20px;
+            padding: 8px 0 9px 10px;
+            border-radius: 5px;
+            border: 2px solid #eaeded;
+            box-shadow: none;
+            margin-top: 5px;
+        }
+        input:focus {
+            border-color: #2ecc71;
+            outline: 0;
+        }
+        #sentence {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    
+<div class="wrapper">
+    <p>例如：输入 Show me the code，输出 show-me-the-code.html</p>
+    Input : <input type="text" id="sentence"><br />
+    Output: <input type="text" id="result">
+</div>
+
+<script type="text/javascript">
+    window.onload = function() {
+        var sentence = document.getElementById('sentence'),
+            result = document.getElementById('result'),
+            originStr = '',
+            resultArr = [];
+
+        sentence.onkeyup = function () {
+            var urlStr = '';
+            originStr = sentence.value;
+            originStr = originStr.toLowerCase();
+            resultArr = originStr.split(/\W/g);
+
+            for (var i=0, len=resultArr.length; i<len; i++) {
+                if (resultArr[i] !== '') {
+                    urlStr = urlStr + resultArr[i] + '-';
+                }
+            }
+            urlStr = urlStr.substring(0, urlStr.length - 1);
+            urlStr += '.html';
+            result.value = urlStr;
+        };
+        
+    };
+</script>
+</body>
+</html>

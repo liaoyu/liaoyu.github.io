@@ -8,7 +8,123 @@
     
 <textarea theme="united" style="display:none;">
 
+#### HTML页面不缓存
+```html
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="expires" content="0">
+```
 
+#### JavaScript将RGB表示的颜色转换成HEX
+```javascript
+var color = {r: 186, g: 218, b: 85};
+
+// RGB to HEX
+var rgb2hex = function(r, g, b) {
+    return '#' + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).substr(1);
+}
+
+rgb2hex(color.r,color.g,color.b)
+// "#bada55"
+```
+
+#### 统计最常用的sh命令
+```shell
+history | awk '{CMD[$2]++;count++;} END { for (a in CMD )print CMD[ a ]" " CMD[ a ]/count*100 "% " a }' | grep -v "./" | column -c3 -s " " -t |sort -nr | nl | head -n10
+```
+
+#### Sublime Text 配置
+```
+"tab_size": 4,
+"translate_tabs_to_spaces": true,
+"word_wrap": false
+```
+
+#### vim配置
+```
+# tab to 4 spaces
+set ts=4
+set expandtab
+```
+
+#### python用法
+```python
+# 开启python服务器 
+python -m http.server
+```
+
+#### CSS Reset
+```css
+/*reset*/
+body, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, p, blockquote, pre, form, fieldset, legend, button, input, textarea, th, td {margin:0; padding:0;}
+ul, ol {list-style:outside none;}
+fieldset, img { border: 0; }
+table {border-collapse:collapse; border-spacing:0;}
+body, small, sup, sub, button, input, textarea, select {font:12px/1 Arial, Helvetica, Verdana, SimSun, sans-serif;}
+body {line-height:1.5;}
+h1, h2, h3, h4, h5, h6 {font-size:100%;}
+address, cite, dfn, em, var {font-style:normal;}
+code, kbd, pre, samp {font-family:Consolas, "Lucida Console", Courier, SimSun, monospace;}
+sup, sub {position:relative; vertical-align:baseline;}
+sup {top:-3px;}
+sub {bottom:-3px;}
+a{text-decoration:none; cursor:pointer;}
+a:hover,a:focus{text-decoration:underline;}
+.clearfix:after{content:"."; display:block; height:0; clear:both; visibility:hidden;}
+.clearfix{display:inline-block;}
+* html .clearfix{height:1%;}
+.clearfix{display:block;}
+.hidden{display:none;}
+```
+
+#### sublime3 package control
+```python
+import urllib.request,os; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); open(os.path.join(ipp, pf), 'wb').write(urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ','%20')).read())
+```
+
+#### 漂亮的表格样式
+
+```css
+table.gridtable {
+    font-family: verdana,arial,sans-serif;
+    font-size:11px;
+    color:#333333;
+    border-width: 1px;
+    border-color: #666666;
+    border-collapse: collapse;
+}
+table.gridtable th {
+    border-width: 1px;
+    padding: 8px;
+    border-style: solid;
+    border-color: #666666;
+    background-color: #dedede;
+}
+table.gridtable td {
+    border-width: 1px;
+    padding: 8px;
+    border-style: solid;
+    border-color: #666666;
+    background-color: #ffffff;
+}
+```
+
+#### 获取XmlHttpRequest对象
+```javascript
+function getXmlHttpObject(){
+    var xmlHttp=null;
+    try{
+        xmlHttp=new XMLHttpRequest();
+    }catch(e){
+        try{
+            xmlHttp=new ActiveXObject("Msxml2.XMLHTTP");
+        }catch(e){
+            xmlHttp=new ActiveXObject("Microsoft.XMLHTTP");
+        }
+    }
+    return xmlHttp;
+}
+```
 
 </textarea>
 

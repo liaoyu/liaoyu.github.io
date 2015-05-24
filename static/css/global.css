@@ -35,11 +35,10 @@ a:hover {
 
 /*2. index*/
 .wrapper {
-    width: 964px;
+    width: 96%;
+    max-width: 964px;
     margin: 0px auto;
-    min-height: 500px;
     position: relative;
-    padding: 0 40px;
     overflow: visible;
     background: transparent;
 }
@@ -81,15 +80,16 @@ a:hover {
 .content {
     overflow: hidden;
     position: relative;
-    min-height: 400px;
 }
 .content a {
     color: #615AAB;
 }
 #painting {
-    height: 490px;
     margin: 0 auto;
     text-align: center;
+}
+#painting img {
+    max-width: 100%;
 }
 #footer {
     margin: 20px 0;

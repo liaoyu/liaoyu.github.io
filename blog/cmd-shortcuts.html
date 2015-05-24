@@ -8,7 +8,168 @@
     
 <textarea theme="united" style="display:none;">
 
+```java
+Vi命令：
+  分屏操作
+    vi -o2 file1 file2          上下分屏
+    vi -O2 file1 file2          左右分屏
+    ctrl+w s                    上下分隔正在打开的文件
+    ctrl+w v                    左右分隔正在打开的文件
+    ctrl+w h j k l              光标在分屏之间左下上右移动
+    ctrl+w H J K L              当前分屏左下上右移动
+    ctrl+w w                    移动到下一个窗口
+    ctrl+w q|c                  关闭当前窗口
+    ctrl+w = + -                窗口尺寸调整
+    :sp                         上下分隔正在打开的文件
+    :sp file                    上下分屏打开新的文件
+    :vsp file                   左右分屏打开新的文件
+    :files                      列表显示所有打开的文件
+  块选择
+    v                           字符选择
+    V                           行选择
+    ctrl+v                      区块选择
 
+
+Linux命令
+  硬件信息：
+    cat /proc/version           查看内核信息
+    cat /etc/issue              查看Linux发行版本
+    cat /proc/cpuinfo           查看CPU信息
+    cat /proc/meminfo           内存信息
+    free  -m                    内存使用情况
+    df -h                       查看磁盘空间
+    uname -a                    查看CPU信息
+    lscpu                       查看CPU信息
+    lsblk                       硬盘和分区信息
+    fdisk                       硬盘和分区的详细信息
+    lspci                       主板所有硬件槽信息
+    du -h --max-depth=1         查看当前目录下文件夹及文件大小
+    ln -s public_html /home/neatap/www www为软链接
+  环境信息：
+    ps -ef | grep java          搜索Java运行环境
+    cal 5 1991                  查看日历
+        -m                      显示当月
+        -y                      显示今年日历
+        -j                      显示从1月1日到今天的天数
+    finger                      查看当前在线用户
+    write django                给django用户发送信息
+    date +%F                    日期格式化
+    tar  
+        -c                      添加新的压缩文件
+        -x                      解压文件
+        -f                      指定文件
+        -v                      显示操作过程                      
+        -z                      解压gzip文件(.gz)                     
+        -j                      解压bzip2文件(.bz2或.bz) 
+        -xf                     git shell解压tar.gz或tar.bz2
+    wc
+        -l                      统计文件行数
+        -L                      最长行的长度
+        -w                      总字数
+    find
+        -name                   # find . -name "dis*.sqr"
+        -type                   # find . -type f | wc -l      查看文件总数
+    grep                        
+        -n                      显示行号：grep -n 'key' file
+        -c                      出现的次数
+        -i                      忽略大小写
+    nl                          
+        -b a                    空行也显示行号
+    sort 
+        -r                      反向排序
+        -f                      忽略大小写
+        -u                      重复仅显示一行 uniq
+    uniq
+        -i                      忽略大小写，该命令仅行排序后的结果操作才有效
+        -c                      统计重复的个数
+    diff                        diff file file2 以行为单位，进行行的比较
+    md5sum <<< message          md5加密 
+    date -s "2014-12-02 09:20"  设置系统时间
+
+
+Windows
+    win+tab                     3D切换
+    native2ascii -encoding utf-8 ApplicationResources_zh.properties ApplicationResources_zh_CN.properties
+    nbtstat -a ip               远程机器信息
+    net view                    获取局域网内的主机名
+    ping -a 主机名              对主机进行ping 可获取IP
+    tracert ip                  追踪路由信息
+
+Git 
+  log:
+    git log(显示较详细的日志信息，包含用户信息、备注和SHA-1全值)
+    git log -n 1 (显示最近一次修改的简短信息)
+    git log -n 1 --stat (文件修改行数等信息)
+    git log -p(显示修改的具体信息 diff)
+    git log -p -n 2(显示近两次的补丁信息)
+    git log --oneline(单行显示一条记录，SHA-1为缩写)
+    git log --stat(较git log新增文件修改统计，比如增行或者删除行)
+    git log --graph(较git log新增图表显示改动信息)
+    git log --pretty=oneline(单行显示一条记录，SHA-1为全值)
+    git log --pretty=short(简短的日志信息，包含SHA-1全值、提交者、提交备注)
+
+Shell
+    Ctrl+U                    删除至行首
+    Ctrl+L                    清屏
+    Ctrl+H                    往前删除一个字符
+    Ctrl+R                    搜索历史命令
+
+Eclipse
+    Ctrl+D                    删除当前行
+    Ctrl+Alt+向下键           复制当前行
+    Ctrl+Shift+/ \            代码块注释与取消
+    Ctrl+Shift+O              导包
+    Alt+Shirt+A               块选择
+    Alt+Shift+R               重命名
+    Alt+Shift+M               方法抽离
+    Alt+Shift+S C O R         导入JavaBean相关代码
+    Alt+Shift+X J             执行类
+    Alt+Shift+Z               Surround With
+    Ctrl+Shift+F              格式化代码块
+    Ctrl+T                    查看类之间继承关系
+    Ctrl+Shift+R              打开项目中的文件
+    Ctrl+Shift+Enter          当前行前插入一行
+    Shift+Enter               当前行后插入一行
+    Alt+Shift+J               生成注释
+    Alt+/                     Content Assist
+    Ctrl+Shift+P              跳至对应括号处
+    Ctrl+Shift+H              类的继承关系及类包含的方法
+    Ctrl+Shift+G              搜索所有方法引用的类
+    Ctrl+Alt+H                搜索所有该方法调用的类
+    Ctrl+K                    搜索下一个选中的字符串
+    Ctrl+Shift+X              转换为大写
+
+Sublime text
+    Alt+F3                    选取所有相同的字符
+    Ctrl+J                    合并行（已选择需要合并的多行时）
+    Ctrl+L                    选择整行(按住-继续选择下行)
+    Ctrl+K U                  改为大写
+    Ctrl+K L                  改为小写
+    Ctrl+K K                  从光标处删除至行尾
+    Ctrl+D                    选择相同的字符
+    Ctrl+P                    调出文件搜索界面
+    Ctrl+M                    光标移动至括号内开始或结束的位置
+    Ctrl+X                    拷贝并删除当前行
+    Ctrl+/                    注释整行(如已选择内容，同“Ctrl+Shift+/”效果)
+    Ctrl+`                    调出命令行界面
+    Ctrl+[ ]                  向左|右缩进                    
+    Ctrl+Shift+V              粘贴并缩进当前行代码
+    Ctrl+Shift+/              注释已选择内容
+    Ctrl+Shift+[              折叠代码
+    Ctrl+Shift+]              展开代码
+    Ctrl+Shift+K              删除整行
+    Ctrl+Shift+D              复制光标所在整行，插入在该行之前
+    Ctrl+Shift+T              打开最近的文件
+    Ctrl+Shift+M              选择括号内的内容
+    Ctrl+Shift+P              打开快捷键选择界面
+    Ctrl+Shift+↑              与上行互换
+    Ctrl+Shift+↓              与下行互换
+    Ctrl+Shift+Enter          光标前插入行
+    Alt+Shift+W               HTML补充
+    块选择                    鼠标中键/Shift+鼠标右键
+    Ctrl+;                    根据关键字搜索
+    Ctrl+G                    跳到指定行
+```
 
 </textarea>
 
