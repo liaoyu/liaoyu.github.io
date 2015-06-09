@@ -15,6 +15,15 @@
 <meta http-equiv="expires" content="0">
 ```
 
+#### 使IE6/7的li支持inline-block
+```css
+li {
+    display: inline-block;
+    zoom: 1;       
+    *display: inline;
+}
+```
+
 #### JavaScript将RGB表示的颜色转换成HEX
 ```javascript
 var color = {r: 186, g: 218, b: 85};

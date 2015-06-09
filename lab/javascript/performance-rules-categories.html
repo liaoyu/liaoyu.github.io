@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="JavaScript选项卡">
+    <meta name="author" content="liaoyu">
+    <title>Performance Rules Categories - L君还在说之乎者也</title>
+
+<style type="text/css">
+    #wrapper {
+        width: 960px;
+        margin: 0 auto;
+        font-size: 14px;
+    }
+    #content {
+        width: 960px;
+        height: auto;
+        margin: 0;
+        padding: 0;
+        border: 1px solid #efefef;
+        border-radius: 5px;
+        box-sizing: border-box;
+        box-shadow: 1px 1px 1px #efefef;
+    }
+
+    #rules-filter {
+        padding: 5px 20px;
+        border-bottom: 1px solid #efefef;
+        font-weight: bold;
+    }
+    #rules-filter ul {
+        display: inline;
+        padding: 0;
+        margin: 0;
+    }
+    #rules-filter ul li {
+        display: inline;
+        padding: 0 5px;
+        border-right: 1px solid #efefef;
+        color: #006CA2;
+        cursor: pointer;
+    }
+    #rules-filter ul li:last-child {
+        border-right: none;
+    }
+
+    #rules-list {
+        margin-left: 20px;
+    }
+    #rules-list li {
+        line-height: 22px;
+    }
+    #rules-list li a {
+        text-decoration: none;
+        color: #16387C;
+    }
+    #rules-list li a:hover {
+        text-decoration: underline;
+    }
+</style>
+<base href="https://developer.yahoo.com/performance/" target="_blank">
+</head>
+<body>
+
+<div id="wrapper">
+    <h2 style="margin-top: 17px;">Best Practices for Speeding Up Your Web Site</h2>
+    <p>Source: <a href="https://developer.yahoo.com/performance/rules.html">https://developer.yahoo.com/performance/rules.html</a></p>
+    <p>The Exceptional Performance team has identified a number of best practices for making web pages fast.
+    The list includes 35 best practices divided into 7 categories.</p>
+
+    <div id="content">
+        <div id="rules-filter">
+            <span>Filter by category:</span>
+            <ul onclick="Rules.filterRules(event)">
+              <li class="tag-Content">Content</li>
+              <li class="tag-Server">Server</li>
+              <li class="tag-Cookie">Cookie</li>
+              <li class="tag-CSS">CSS</li>
+              <li class="tag-JavaScript">JavaScript</li>
+              <li class="tag-Images">Images</li>
+              <li class="tag-Mobile">Mobile</li>
+              <li class="tag-All">All</li>
+            </ul>
+        </div>
+
+        <ol id="rules-list">
+          <li><a class="Content" href="rules.html#num_http">Make Fewer HTTP Requests</a></li>
+          <li><a class="Server"  href="rules.html#cdn">Use a Content Delivery Network (CDN)</a></li>
+          <li><a class="Server"  href="rules.html#expires">Add Expires or Cache-Control Header</a></li>
+          <li><a class="Server"  href="rules.html#gzip">Gzip Components</a></li>
+          <li><a class="CSS"     href="rules.html#css_top">Put Stylesheets at Top</a></li>
+          <li><a class="JavaScript" href="rules.html#js_bottom">Put Scripts at Bottom</a></li>
+          <li><a class="CSS"     href="rules.html#css_expressions">Avoid CSS Expressions</a></li>
+          <li><a class="JavaScript css" href="rules.html#external">Make JavaScript and CSS External</a></li>
+          <li><a class="Content" href="rules.html#dns_lookups">Reduce DNS Lookups</a></li>
+          <li><a class="JavaScript css" href="rules.html#minify">Minify JavaScript and CSS</a></li>
+          <li><a class="Content" href="rules.html#redirects">Avoid Redirects</a></li>
+          <li><a class="JavaScript" href="rules.html#js_dupes">Remove Duplicate Scripts</a></li>
+          <li><a class="Server"  href="rules.html#etags">Configure ETags</a></li>
+          <li><a class="Content" href="rules.html#cacheajax">Make Ajax Cacheable</a></li>
+          <li><a class="Server"  href="rules.html#flush">Flush Buffer Early</a></li>
+          <li><a class="Server"  href="rules.html#ajax_get">Use GET for Ajax Requests</a></li>
+          <li><a class="Content" href="rules.html#postload">Postload Components</a></li>
+          <li><a class="Content" href="rules.html#preload">Preload Components</a></li>
+          <li><a class="Content" href="rules.html#min_dom">Reduce the Number of DOM Elements</a></li>
+          <li><a class="Content" href="rules.html#split">Split Components Across Domains</a></li>
+          <li><a class="Content" href="rules.html#iframes">Minimize Number of iframes</a></li>
+          <li><a class="Content" href="rules.html#no404">Avoid 404s</a></li>
+          <li><a class="Cookie"  href="rules.html#cookie_size">Reduce Cookie Size</a></li>
+          <li><a class="Cookie"  href="rules.html#cookie_free">Use Cookie-Free Domains for Components</a></li>
+          <li><a class="JavaScript" href="rules.html#dom_access">Minimize DOM Access</a></li>
+          <li><a class="JavaScript" href="rules.html#events">Develop Smart Event Handlers</a></li>
+          <li><a class="CSS"     href="rules.html#csslink">Choose &lt;link&gt; Over @import</a></li>
+          <li><a class="CSS"     href="rules.html#no_filters">Avoid Filters</a></li>
+          <li><a class="Images"  href="rules.html#opt_images">Optimize Images</a></li>
+          <li><a class="Images"  href="rules.html#opt_sprites">Optimize CSS Sprites</a></li>
+          <li><a class="Images"  href="rules.html#no_scale">Do Not Scale Images in HTML</a></li><!--'-->
+          <li><a class="Images"  href="rules.html#favicon">Make favicon.ico Small and Cacheable</a></li>
+          <li><a class="Mobile"  href="rules.html#under25">Keep Components Under 25 KB</a></li>
+          <li><a class="Mobile"  href="rules.html#multipart">Pack Components Into a Multipart Document</a></li>
+          <li><a class="Server" href="rules.html#emptysrc">Avoid Empty Image src</a></li>
+        </ol>
+    </div>
+</div>
+
+<script type="text/javascript">
+var Rules = (function(){
+    var $ = {};
+
+    $.Source = document.querySelector('#rules-list');
+    $.Categories = $.Source.cloneNode(true);
+
+    $.filterRules = function(event) {
+        var target = event.target;
+        var tagName = target.className.substr(4);
+
+        if (tagName) {
+            this.filterContent(tagName);
+        }
+    }
+
+    $.filterContent = function(tagName) {
+        if (tagName === 'All') {
+            $.Source.innerHTML = $.Categories.innerHTML;
+            return;
+        }
+
+        var aResult = $.Categories.querySelectorAll('a.'+ tagName +'');
+        var result = document.createElement('ol');
+        for (var i=0, j=aResult.length; i<j; i++) {
+            result.appendChild(aResult[i].parentNode.cloneNode(true));
+        }
+        $.Source.innerHTML = result.innerHTML;
+    }
+
+    return $;
+})();
+
+document.addEventListener('DOMContentLoaded', function(){
+    Rules.filterContent('Content');
+}, false);
+</script>
+</body>
+</html>
