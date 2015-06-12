@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="liaoyu">
+    <title>下拉菜单 - L君还在说之乎者也</title>
+
+<style type="text/css">
+    #wrapper {
+        width: 960px;
+        height: 400px;
+        margin: 0 auto;
+        padding: 0;
+    }
+
+    #menu {
+        margin: 0;
+        padding: 0;
+    }
+    #menu li {
+        list-style: none;
+        float: left;
+        font-size: 14px;
+        font-weight: bold;
+    }
+    #menu li a {
+        display: block;
+        width: 60px;
+        margin: 0 1px 0 0;
+        padding: 4px 6px;
+        color: #FFF;
+        background-color: #5970B2;
+        text-decoration: none;
+        text-align: center;
+    }
+    #menu li a:hover {
+        background-color: #49A3FF;
+    }
+
+    #menu div {
+        position: absolute;
+        margin: 1px 0 0 0;
+        padding: 0;
+        visibility: hidden;
+    }
+    #menu div a {
+        width: auto;
+        margin: 0;
+        padding: 4px 10px;
+        text-align: left;
+        white-space: nowrap;
+    }
+</style>
+</head>
+<body>
+
+<div id="wrapper">
+
+<p style="margin-bottom: 200px;">
+    Reference: <a href="http://www.javascript-array.com/scripts/simple_drop_down_menu">http://www.javascript-array.com/scripts/simple_drop_down_menu</a>
+</p>
+
+<ul id="menu">
+    <li><a href="#" onmouseover="openMenu('submenu1')" onmouseout="closeMenu()">Home</a>
+        <div id="submenu1" onmouseover="holdMenu()" onmouseout="closeMenu()">
+            <a href="#">HTML/CSS</a>
+            <a href="#">DHTML Menu</a>
+            <a href="#">JavaScript</a>
+        </div>
+    </li>
+    <li><a href="#" onmouseover="openMenu('submenu2')" onmouseout="closeMenu()">Download</a>
+        <div id="submenu2" onmouseover="holdMenu()" onmouseout="closeMenu()">
+            <a href="#">ASP Server-side</a>
+            <a href="#">Pulldown navigation</a>
+            <a href="#">AJAX Drop Submenu</a>
+            <a href="#">DIV Cascading </a>
+        </div>
+    </li>
+    <li><a href="#">Order</a></li>
+    <li><a href="#">Help</a></li>
+    <li><a href="#">Contact</a></li>
+</ul>
+
+<div style="clear:both;"></div>
+
+</div>
+
+<script type="text/javascript">
+var menuItem = null;
+var closeTimer = 0;
+
+function openMenu (id) {
+    // clear previous timer
+    if (closeTimer) {
+        holdMenu();
+    }
+
+    // hidden previous menu
+    if (menuItem) {
+        realCloseMenu();
+    }
+
+    menuItem = document.getElementById(id);
+    menuItem.style.visibility = 'visible';
+}
+
+function closeMenu () {
+    closeTimer = setTimeout(realCloseMenu, 500);
+}
+
+function holdMenu () {
+    clearTimeout(closeTimer);
+}
+
+function realCloseMenu () {
+    menuItem.style.visibility = 'hidden';
+    menuItem = null;
+}
+</script>
+</body>
+</html>

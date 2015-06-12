@@ -1,3 +1,8 @@
+/**
+    author: liaoyu
+    site: www.neatap.com
+*/
+
 /*1. global*/
 
 /* latin */
@@ -30,11 +35,11 @@ a {
 }
 a:hover {
     text-decoration: underline;
-    color: #333333;
+    color: #222222;
 }
 
 /*2. index*/
-.wrapper {
+#wrapper {
     width: 96%;
     max-width: 964px;
     margin: 0px auto;
@@ -42,47 +47,64 @@ a:hover {
     overflow: visible;
     background: transparent;
 }
-.site-header {
+#site-header {
     border-bottom: 1px solid #e8e8e8;
     margin-bottom: 20px;
     position: relative;
 }
-.nav-bar {
+#nav-bar {
     text-align: center;
+    padding: 30px 0;
 }
-.nav-bar a:hover {
+#nav-bar a:hover {
     text-decoration: none;
 }
 #logo {
     display: block;
-    margin: 30px auto;
-    line-height: 30px;
+    float: left;
+}
+#logo h1 {
+    font-size: 18px;
+    margin: 0;
+    padding: 0;
+    line-height: 26px;
 }
 #nav {
     position: relative;
     display: block;
-    list-style-type: none;
+    float: right;
     padding: 0;
-    margin: 20px 0;
-    white-space: nowrap
+    margin: 0;
+    white-space: nowrap;
 }
 #nav li {
     position: relative;
+    list-style-type: none;
     display: inline-block;
     zoom: 1;            /*let ie6/7 support inline-block*/
     *display: inline;   /*step2*/
-    padding: 2px 30px;
-    border-left: 1px solid #e8e8e8;
+    padding: 2px 5px;
+    margin-left: 25px;
+    border-bottom: 2px solid transparent;
 }
-#nav li:first-child {
-    border-left: none;
+#nav li:hover {
+    border-bottom: 2px solid #8CCDBE;
 }
-.content {
+#container {
     overflow: hidden;
     position: relative;
 }
-.content a {
-    color: #615AAB;
+#container a:link {
+    color: #3A2DCA;
+}
+#container a:visited {
+    color: #595988;
+}
+#container a:hover {
+    color: #0000AA;
+}
+#container a:active {
+    color: #0000FF;
 }
 #painting {
     margin: 0 auto;
@@ -96,6 +118,13 @@ a:hover {
     font-size: 12px;
     border-top: 1px solid #e8e8e8;
     text-align: center;
+}
+
+/*media queries*/
+@media screen and (min-height: 500px) {
+    #container {
+        min-height: 500px;
+    }
 }
 
 /*3. lab*/
