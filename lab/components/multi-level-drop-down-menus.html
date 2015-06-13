@@ -8,38 +8,24 @@
     <title>多级下拉菜单 - L君还在说之乎者也</title>
 
 <style type="text/css">
-    #wrapper {
-        width: 960px;
-        height: 400px;
-        margin: 0 auto;
-        padding: 0;
-    }
-    #menu {
-        margin: 0;
-        padding: 0;
-        position: relative;
-        font-size: 14px;
-    }
-    #menu li {
-        margin: 0;
-        padding: 0;
-        list-style-type: none;
-        float: left;
-    }
-    #menu li a {
-        display: block;
-        width: 70px;
-        margin: 0;
-        padding: 7px 10px;
-        white-space: nowrap;
-        text-align: center;
-        text-decoration: none;
-        color: #FFF;
-        background-color: #3D67BD;
-    }
-    #menu li a:hover {
-        background-color: #213866;
-    }
+#wrapper {
+    width: 960px;
+    height: 400px;
+    margin: 0 auto;
+    padding: 0;
+    font-size: 14px;
+}
+ul.menu {list-style:none; margin:0; padding:0}
+ul.menu * {margin:0; padding:0}
+ul.menu li {position:relative; float:left; margin-right: 1px;}
+ul.menu a {display:block; color:#FFF; text-decoration:none; background-color: #3D67BD;}
+ul.menu a:hover {background-color: #213866;}
+ul.menu ul {position:absolute; top:29px; left:0; display:none; opacity:0; list-style:none}
+ul.menu ul li {position:relative; width:148px; margin:0}
+ul.menu ul li a {padding:3px 7px 5px;}
+ul.menu ul ul {left:149px; top: 0px}
+ul.menu>li>a {padding:5px 7px 7px; font-weight:bold; width:134px; text-align: center;}
+ul.menu .sub {background:#3D67BD url(/static/img/arrow.gif) right no-repeat}
 </style>
 </head>
 <body>
@@ -47,23 +33,82 @@
 <div id="wrapper">
 
 <p style="margin-bottom: 200px;">
-    Reference: <a href="http://www.javascript-array.com/scripts/multi_level_drop_down_menu/">http://www.javascript-array.com/scripts/multi_level_drop_down_menu/</a>
+    Reference: <a href="http://sandbox.scriptiny.com/dropdown-menu/">http://sandbox.scriptiny.com/dropdown-menu/</a>
 </p>
 
-<ul id="menu">
-    <li><a href="#">Blog</a>
+<ul class="menu" id="menu">
+    <li><a href="#">Dropdown One</a>
         <ul>
-            <li><a href="#">Python</a></li>
-            <li><a href="#">PHP</a></li>
-            <li><a href="#">Java</a></li>
-            <li><a href="#">JavaScript</a></li>
-            <li><a href="#">All Language</a></li>
+            <li><a href="#">Navigation Item 1</a></li>
+            <li>
+                <a href="#" class="sub">Navigation Item 2</a>
+                <ul>
+                    <li><a href="#">Navigation Item 1</a></li>
+                    <li><a href="#">Navigation Item 2</a></li>
+                    <li><a href="#">Navigation Item 3</a></li>
+                    <li><a href="#">Navigation Item 4</a></li>
+                    <li><a href="#">Navigation Item 5</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#" class="sub">Navigation Item 3</a>
+                <ul>
+                    <li><a href="#">Navigation Item 1</a></li>
+                    <li><a href="#">Navigation Item 2</a></li>
+                    <li>
+                        <a href="#" class="sub">Navigation Item 3</a>
+                        <ul>
+                            <li><a href="#">Navigation Item 1</a></li>
+                            <li><a href="#">Navigation Item 2</a></li>
+                            <li><a href="#">Navigation Item 3</a></li>
+                            <li><a href="#">Navigation Item 4</a></li>
+                            <li><a href="#">Navigation Item 5</a></li>
+                            <li><a href="#">Navigation Item 6</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Navigation Item 4</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Navigation Item 4</a></li>
+            <li><a href="#">Navigation Item 5</a></li>
         </ul>
     </li>
-    <li><a href="#">Lab</a></li>
-    <li><a href="#">About</a></li>
-    <li><a href="#">Contact</a></li>
-    <li><a href="#">Sitemap</a></li>
+    <li><a href="#">Non-Dropdown</a></li>
+    <li>
+        <a href="#">Dropdown Two</a>
+        <ul>
+            <li><a href="#">Navigation Item 1</a></li>
+            <li>
+                <a href="#" class="sub">Navigation Item 2</a>
+                <ul>
+                    <li><a href="#">Navigation Item 1</a></li>
+                    <li><a href="#">Navigation Item 2</a></li>
+                    <li><a href="#">Navigation Item 3</a></li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="#">Dropdown Three</a>
+        <ul>
+            <li><a href="#">Navigation Item 1</a></li>
+            <li><a href="#">Navigation Item 2</a></li>
+            <li><a href="#">Navigation Item 3</a></li>
+            <li><a href="#">Navigation Item 4</a></li>
+            <li><a href="#">Navigation Item 5</a></li>
+            <li>
+                <a href="#" class="sub">Navigation Item 6</a>
+                <ul>
+                    <li><a href="#">Navigation Item 1</a></li>
+                    <li><a href="#">Navigation Item 2</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Navigation Item 7</a></li>
+            <li><a href="#">Navigation Item 8</a></li>
+            <li><a href="#">Navigation Item 9</a></li>
+            <li><a href="#">Navigation Item 10</a></li>
+        </ul>
+    </li>
 </ul>
 
 <div style="clear:both;"></div>
@@ -71,7 +116,42 @@
 </div>
 
 <script type="text/javascript">
+var menu=function(){
+    var t=15,z=50,s=6,a;
+    function dd(n){this.n=n; this.h=[]; this.c=[]}
+    dd.prototype.init=function(p,c){
+        a=c; var w=document.getElementById(p), s=w.getElementsByTagName('ul'), l=s.length, i=0;
+        for(i;i<l;i++){
+            var h=s[i].parentNode; this.h[i]=h; this.c[i]=s[i];
+            h.onmouseover=new Function(this.n+'.st('+i+',true)');
+            h.onmouseout=new Function(this.n+'.st('+i+')');
+        }
+    }
+    dd.prototype.st=function(x,f){
+        var c=this.c[x], h=this.h[x], p=h.getElementsByTagName('a')[0];
+        clearInterval(c.t); c.style.overflow='hidden';
+        if(f){
+            p.className+=' '+a;
+            if(!c.mh){c.style.display='block'; c.style.height=''; c.mh=c.offsetHeight; c.style.height=0}
+            if(c.mh==c.offsetHeight){c.style.overflow='visible'}
+            else{c.style.zIndex=z; z++; c.t=setInterval(function(){sl(c,1)},t)}
+        }else{p.className=p.className.replace(a,''); c.t=setInterval(function(){sl(c,-1)},t)}
+    }
+    function sl(c,f){
+        var h=c.offsetHeight;
+        if((h<=0&&f!=1)||(h>=c.mh&&f==1)){
+            if(f==1){c.style.filter=''; c.style.opacity=1; c.style.overflow='visible'}
+            clearInterval(c.t); return
+        }
+        var d=(f==1)?Math.ceil((c.mh-h)/s):Math.ceil(h/s), o=h/c.mh;
+        c.style.opacity=o; c.style.filter='alpha(opacity='+(o*100)+')';
+        c.style.height=h+(d*f)+'px'
+    }
+    return{dd:dd}
+}();
 
+var menu=new menu.dd("menu");
+menu.init("menu","menuhover");
 </script>
 </body>
 </html>

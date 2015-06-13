@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="liaoyu">
+    <title>纯CSS实现多级下拉菜单 - L君还在说之乎者也</title>
+
+<style type="text/css">
+#wrapper {
+    width: 960px;
+    height: 600px;
+    margin: 0 auto;
+    padding: 0;
+    font-size: 14px;
+}
+#nav {
+    margin: 0;
+    padding: 0;
+    height: 40px;
+    min-width: 500px;
+    background-color: #3AB3A9;
+    border: 1px solid #30A097;
+    border-radius: 3px;
+}
+#nav li {
+    list-style: none;
+    display: block;
+    float: left;
+    height: 40px;
+    position: relative;
+    border-right: 1px solid #52BDB5;
+}
+#nav li.site-name {
+    width: 160px;
+}
+#nav li a {
+    text-decoration: none;
+    display: block;
+    margin: 0;
+    padding: 0 10px;
+    height: 40px;
+    line-height: 40px;
+    border-right: 1px solid #389E96;
+    text-align: center;
+    font-weight: bold;
+    color: #FFF;
+    text-shadow: 1px 1px 1px #66696B;
+}
+#nav>li>a:hover {
+    background-color: #3BA39B;
+}
+#nav ul {
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    top: 40px;
+    left: 0;
+    visibility: hidden;
+    display: none;
+    width: 170px;
+    border-right: 1px solid #DDDDDD;
+    border-left:1px solid #DDDDDD;
+    box-shadow: 2px 2px 3px #ECECEC;
+    border-radius: 0px 0px 3px 3px;
+}
+#nav ul li {
+    width: 170px;
+    height: 40px;
+    border-bottom: 1px solid #DDDDDD;
+    border-right: none;
+}
+#nav ul li a {
+    border-right: none;
+    text-align: left;
+    font-weight: normal;
+    background-color: #f2f5f6;
+    color:#6791AD;
+    text-shadow: 1px 1px 1px #FFF;
+}
+#nav ul li a:hover {
+    background-color: #DFEEF0;
+}
+#nav ul ul {
+    position: absolute;
+    left: 170px;
+    top: 0;
+    border: 1px solid #DDDDDD;
+}
+#nav li:hover > ul {
+    display: block;
+    visibility: visible;
+}
+</style>
+</head>
+<body>
+
+<div id="wrapper">
+
+<p style="margin-bottom: 100px;">
+    Reference: <a href="http://www.sanwebe.com/2013/06/multi-level-dropdown-menu-css">http://www.sanwebe.com/2013/06/multi-level-dropdown-menu-css</a>
+</p>
+
+<ul id="nav">
+    <li class="site-name"><a href="/lab">Home</a></li>
+    <li><a href="#">Facebook</a>
+        <ul>
+            <li><a href="#">Facebook Pages</a></li>
+            <li><a href="#">Facebook Groups</a></li>
+        </ul>
+    </li>
+    <li><a href="#">Yahoo</a>
+        <ul>
+            <li><a href="#">Yahoo Games &raquo;</a>            
+                <ul>
+                    <li><a href="#">Board Games</a></li>
+                    <li><a href="#">Card Games</a></li>
+                    <li><a href="#">Puzzle Games</a></li>
+                    <li><a href="#">Skill Games &raquo;</a>
+                        <ul>
+                            <li><a href="#">Yahoo Pool</a></li>
+                            <li><a href="#">Chess &raquo;</a>
+                                <ul>
+                                    <li><a href="#">JavaScript</a></li>
+                                    <li><a href="#">HTML5</a></li>
+                                    <li><a href="#">CSS3</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li><a href="#">Yahoo Search</a></li>
+            <li><a href="#">Yahoo Answsers</a></li>
+        </ul>
+    </li>
+    <li><a href="#">Google</a>
+        <ul>
+            <li><a href="#">Google mail</a></li>
+            <li><a href="#">Google Plus</a></li>
+            <li><a href="#">Google Search &raquo;</a>
+                <ul>
+                    <li><a href="#">Search Images</a></li>
+                    <li><a href="#">Search Web</a></li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li><a href="#">Twitter</a>
+        <ul>
+            <li><a href="#">New Tweets</a></li>
+            <li><a href="#">Compose a Tweet</a></li>
+        </ul>
+    </li>
+</ul>
+
+<div style="clear:both;"></div>
+
+</div>
+
+</body>
+</html>
