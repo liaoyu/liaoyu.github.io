@@ -133,18 +133,7 @@
   }
 
   // All done - show body
-
-  if (document.addEventListener) {
-    document.addEventListener('DOMContentLoaded', function () {
-      document.body.style.display = '';
-    }, false);
-  } else {
-    document.onreadystatechange = function () {
-      if (document.readyState === "complete") {
-        document.body.style.display = '';
-      }
-    }
-  }
+  document.body.style.display = '';
 
 
 })(window, document);
