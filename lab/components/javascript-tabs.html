@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="liaoyu">
+    <title>标签页 - L君还在说之乎者也</title>
+
+<style type="text/css">
+#wrapper {
+    width: 960px;
+    height: 400px;
+    margin: 0 auto;
+    padding: 0;
+    font-size: 14px;
+    color: #3C3C3C;
+}
+#book-tab {
+    margin-top: 60px;
+    border: 1px solid #e8e8e8;
+
+}
+.nav-tabs {
+    position: relative;
+    height: 40px;
+
+    background-color: #F7F7F7;
+}
+.nav-tabs ul {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+}
+.nav-tabs ul li {
+    list-style: none;
+    display: block;
+    float: left;
+    height: 39px;
+    line-height: 39px;
+    width: 80px;
+    text-align: center;
+    border-bottom: 1px solid #e8e8e8;
+    cursor: pointer;
+}
+.nav-tabs ul li.selected {
+    background-color: #FFF;
+    border-bottom: 1px solid #FFF;
+}
+.nav-tabs ul li a {
+    text-decoration: none;
+    color: #333;
+    display: block;
+}
+.nav-tabs ul li a:hover {
+    color: #B52C2C;
+}
+.nav-tabs ul li.selected a {
+    font-weight: bold;
+}
+.tab-panel {
+    padding: 20px;
+    min-height: 200px;
+    display: none;
+}
+.tab-panel.active {
+    display: block;
+}
+
+</style>
+</head>
+<body>
+
+<div id="wrapper">
+
+<h3>JavaScript实现的标签页</h3>
+<div id="book-tab"  class="c bb a">
+    <div class="nav-tabs">
+        <ul>
+            <li class="selected"><a href="#javascript">JS</a></li>
+            <li><a href="#html5">HTML5</a></li>
+            <li><a href="#css3">CSS3</a></li>
+        </ul>
+    </div>
+    <div class="tab-content">
+        <div class="tab-panel active" id="javascript">JavaScript高级程序设计</div>
+        <div class="tab-panel" id="html5">HTML5程序设计</div>
+        <div class="tab-panel" id="css3">CSS权威指南</div>
+    </div>
+</div>
+
+</div>
+
+<script type="text/javascript">
+var tab = document.getElementById('book-tab');
+tab.onclick= function(event){
+    // compatible IE
+    var event = event || window.event;
+    event.preventDefault ? event.preventDefault() : event.returnValue = false;
+    var target = event.target || event.srcElement;
+
+    if (target.tagName.toLowerCase() === 'a') {
+        var link = target.href;
+        var targetElementId = link.substr(link.lastIndexOf('#') + 1);
+
+        // toggle class active
+        var tabContent = document.getElementById(targetElementId).parentNode;
+        var panels = tabContent.children;
+        for (var i=0,j=panels.length; i<j; i++) {
+            if (panels[i].id === targetElementId) {
+                addClass(panels[i], 'active');
+            } else {
+                removeClass(panels[i], 'active');
+            }
+        }
+
+        // toggle class selected
+        var tabs = target.parentNode.parentNode.children;
+        for (var i=0,j=tabs.length; i<j; i++) {
+            removeClass(tabs[i], 'selected');
+        }
+        addClass(target.parentNode, 'selected');
+    }
+}
+
+function hasClass(element, className) {
+    return new RegExp('(^| )' + className + '( |$)').test(element.className);
+}
+
+function addClass(element, className) {
+    var elementClass = element.className;
+    if (!hasClass(element, className)) {
+        element.className = elementClass + ' ' + className;
+    }
+}
+
+function removeClass(element, className) {
+    var elementClass = element.className;
+    var classNamePattern = new RegExp('(^|\\s+)' + className + '(\\s+|$)');
+    if (hasClass(element, className)) {
+        element.className = elementClass.replace(classNamePattern, ' ');
+    }
+}
+</script>
+</body>
+</html>
