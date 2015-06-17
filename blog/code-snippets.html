@@ -37,11 +37,6 @@ rgb2hex(color.r,color.g,color.b)
 // "#bada55"
 ```
 
-#### 统计最常用的sh命令
-```shell
-history | awk '{CMD[$2]++;count++;} END { for (a in CMD )print CMD[ a ]" " CMD[ a ]/count*100 "% " a }' | grep -v "./" | column -c3 -s " " -t |sort -nr | nl | head -n10
-```
-
 #### Sublime Text 配置
 ```
 "tab_size": 4,
@@ -62,39 +57,10 @@ set expandtab
 python -m http.server
 ```
 
-#### CSS Reset
-```css
-/*reset*/
-body, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, p, blockquote, pre, form, fieldset, legend, button, input, textarea, th, td {margin:0; padding:0;}
-ul, ol {list-style:outside none;}
-fieldset, img { border: 0; }
-table {border-collapse:collapse; border-spacing:0;}
-body, small, sup, sub, button, input, textarea, select {font:12px/1 Arial, Helvetica, Verdana, SimSun, sans-serif;}
-body {line-height:1.5;}
-h1, h2, h3, h4, h5, h6 {font-size:100%;}
-address, cite, dfn, em, var {font-style:normal;}
-code, kbd, pre, samp {font-family:Consolas, "Lucida Console", Courier, SimSun, monospace;}
-sup, sub {position:relative; vertical-align:baseline;}
-sup {top:-3px;}
-sub {bottom:-3px;}
-a{text-decoration:none; cursor:pointer;}
-a:hover,a:focus{text-decoration:underline;}
-.clearfix:after{content:"."; display:block; height:0; clear:both; visibility:hidden;}
-.clearfix{display:inline-block;}
-* html .clearfix{height:1%;}
-.clearfix{display:block;}
-.hidden{display:none;}
-```
-
-#### sublime3 package control
-```python
-import urllib.request,os,hashlib; h = 'eb2297e1a458f27d836c04bb0cbaf282' + 'd0e7a3098092775ccb37ca9d6b2e4b7d'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)
-```
-
 #### 漂亮的表格样式
 
 ```css
-table.gridtable {
+table {
     font-family: verdana,arial,sans-serif;
     font-size:11px;
     color:#333333;
@@ -102,14 +68,14 @@ table.gridtable {
     border-color: #666666;
     border-collapse: collapse;
 }
-table.gridtable th {
+table th {
     border-width: 1px;
     padding: 8px;
     border-style: solid;
     border-color: #666666;
     background-color: #dedede;
 }
-table.gridtable td {
+table td {
     border-width: 1px;
     padding: 8px;
     border-style: solid;
@@ -117,24 +83,6 @@ table.gridtable td {
     background-color: #ffffff;
 }
 ```
-
-#### 获取XmlHttpRequest对象
-```javascript
-function getXmlHttpObject(){
-    var xmlHttp=null;
-    try{
-        xmlHttp=new XMLHttpRequest();
-    }catch(e){
-        try{
-            xmlHttp=new ActiveXObject("Msxml2.XMLHTTP");
-        }catch(e){
-            xmlHttp=new ActiveXObject("Microsoft.XMLHTTP");
-        }
-    }
-    return xmlHttp;
-}
-```
-
 </xmp>
 
 <script type="text/javascript" src="/static/v/strapdown.js"></script>

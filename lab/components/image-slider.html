@@ -88,8 +88,7 @@ var slider = document.getElementById('slider');
 var panels = slider.getElementsByTagName('li');
 
 // get slider width, suffix is px
-var panelWidthStr = getElementStyle(panels[0], 'width');
-var panelWidth = parseInt(panelWidthStr.substr(0, panelWidthStr.length - 2), 10);
+var panelWidth = parseInt(getElementStyle(panels[0], 'width'));
 var leftPosition = 0;
 var panelCount = 0;
 
@@ -104,8 +103,7 @@ function prevSlider() {
     var e = e || window.event;
     e.preventDefault ? e.preventDefault() : e.returnValue = false;
     for (var i=0,j=panels.length; i<j; i++) {
-        var currentPanelWidthStr = getElementStyle(panels[i], 'left');
-        var currentPanelWidth = parseInt(currentPanelWidthStr.substr(0, currentPanelWidthStr.length - 2), 10);
+        var currentPanelWidth = parseInt(getElementStyle(panels[i], 'left'));
         if (currentPanelWidth === (-panelWidth)) {
             moveAnimation(panels[i], 'left', panelWidth);
         } else if (currentPanelWidth === (panelWidth * (panelCount - 2))) {
@@ -120,8 +118,7 @@ function nextSlider(e) {
     var e = e || window.event;
     e.preventDefault ? e.preventDefault() : e.returnValue = false;
     for (var i=0,j=panels.length; i<j; i++) {
-        var currentPanelWidthStr = getElementStyle(panels[i], 'left');
-        var currentPanelWidth = parseInt(currentPanelWidthStr.substr(0, currentPanelWidthStr.length - 2), 10);
+        var currentPanelWidth = parseInt(getElementStyle(panels[i], 'left'));
         if (currentPanelWidth === panelWidth) {
             moveAnimation(panels[i], 'left', -panelWidth);
         } else if (currentPanelWidth === (-panelWidth)) {
