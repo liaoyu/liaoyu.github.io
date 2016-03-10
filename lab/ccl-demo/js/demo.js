@@ -40,7 +40,7 @@ function sendMsg(cmtArr) {
         var cmtItem = cmtArr[i],
             iconStr = '';
 
-        if (cmtItem.usericon && cmtItem.usericon.length > 0) {
+        if (cmtItem.icon && cmtItem.icon.length > 0) {
             iconStr = '<span class="icon"><img src="'+ cmtItem.icon +'"></span>';
         }
 
