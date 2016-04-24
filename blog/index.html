@@ -16,53 +16,27 @@
 <body>
 
 <div id="wrapper">
-    <header id="site-header">
-        <div id="nav-bar">
-            <a href="/" id="logo"><h1>L君还在说之乎者也</h1></a>
-            <nav>
-                <ul id="nav">
-                    <li><a href="/blog/">Blog</a></li>
-                    <li><a href="/lab/">Lab</a></li>
-                    <li><a href="/about/">About</a></li>
-                </ul>
-            </nav>
-            <div style="clear: both;"></div>
-        </div>
-    </header>
+    <uu-nav curr="blog"></uu-nav>
+
     <div id="container">
         <div class="description">
-            其它的博客文章主要在cnblogs上，请 <a href="http://www.cnblogs.com/liaoyu/">点击这里</a> 查看。
+            请 <a href="http://www.cnblogs.com/liaoyu/">点击这里</a> 查看更多博客。
         </div>
-        <div class="archive">        
-            <h3>Top</h3>
-            <div class="article">
-                <span class="datetime">05-20-2015 </span>
-                <a class="title" href="bookmarks.html">收藏夹</a>
-            </div>
-            <div class="article">
-                <span class="datetime">05-20-2015 </span>
-                <a class="title" href="code-snippets.html">代码片段</a>
-            </div>
-            <div class="article">
-                <span class="datetime">05-20-2015 </span>
-                <a class="title" href="cmd-shortcuts.html">命令行和快捷键</a>
-            </div>
+        <div class="archive">
+            <template v-for="articles in posts">
+                <h3>{{ articles.category }}</h3>
+                <div class="article" v-for="post in articles.items">
+                    <span class="datetime">{{ post.datetime }}</span>
+                    <a class="title" href="{{ post.url }}">{{ post.title }}</a>
+                </div>
+            </template>
         </div>
     </div>
-    <footer id="footer">
-        <p>Copyright &copy; 2014-2015 . Powered by liaoyu.</p>
-    </footer>
+
+    <uu-footer></uu-footer>
 </div>
 
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-63341508-1', 'auto');
-  ga('send', 'pageview');
-
-</script>
+<script type="text/javascript" src="/static/js/vue.min.js"></script>
+<script type="text/javascript" src="/static/js/main.js"></script>
 </body>
 </html>

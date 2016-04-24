@@ -1,0 +1,27 @@
+{
+  "name": "liaoyu.github.io",
+  "version": "1.0.0",
+  "description": "Django Liao Home Page",
+  "main": "index.html",
+  "scripts": {
+    "dev": "browser-sync start --s --f 'about' 'blog' 'lab' 'static' 'index.html'",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/liaoyu/liaoyu.github.io.git"
+  },
+  "keywords": [
+    "Vue",
+    "Blog"
+  ],
+  "author": "django.liao@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/liaoyu/liaoyu.github.io/issues"
+  },
+  "homepage": "https://github.com/liaoyu/liaoyu.github.io#readme",
+  "devDependencies": {
+    "browser-sync": "^2.12.3"
+  }
+}

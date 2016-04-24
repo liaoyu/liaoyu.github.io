@@ -7,7 +7,7 @@
     <meta name="description" content="Javascript实现摩斯码转换">
     <meta name="author" content="liaoyu">
     <title>Morse Code Translator - L君还在说之乎者也</title>
-    <link rel="stylesheet" type="text/css" href="/static/css/morse-code.css">
+    <link rel="stylesheet" type="text/css" href="./css/morse-code.css">
 </head>
 <body>
 <div id="main">
@@ -24,7 +24,7 @@
     <button id="reset">清空</button>
 </div>
 
-<script type="text/javascript" src="/static/js/morse-code.js"></script>
+<script type="text/javascript" src="./js/morse-code.js"></script>
 <script type="text/javascript">
 window.onload = function() {
     var input = document.getElementById('input');
@@ -33,7 +33,7 @@ window.onload = function() {
     var decode = document.getElementById('decode');
     var reset = document.getElementById('reset');
     var error = document.getElementById('error');
-    
+
     parse.onclick = function() {
         output.value = morse.parse(utils.trim(input.value));
         toggleError();
@@ -53,7 +53,7 @@ window.onload = function() {
             error.style.display = 'block';
         } else {
             error.style.display = 'none';
-        } 
+        }
     }
 }
 </script>

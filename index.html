@@ -17,41 +17,22 @@
 <body>
 
 <div id="wrapper">
-    <header id="site-header">
-        <div id="nav-bar">
-            <a href="/" id="logo"><h1>L君还在说之乎者也</h1></a>
-            <nav>
-                <ul id="nav">
-                    <li><a href="/blog/">Blog</a></li>
-                    <li><a href="/lab/">Lab</a></li>
-                    <li><a href="/about/">About</a></li>
-                </ul>
-            </nav>
-            <div style="clear: both;"></div>
-        </div>
-    </header>
+    <uu-nav></uu-nav>
+
     <div id="container">
         <div id="painting"><img src="/static/img/index.jpg" alt="The Zen Of Life."></div>
     </div>
-    <footer id="footer">
-        <p>Copyright &copy; 2014-2015 . Powered by liaoyu.</p>
-    </footer>
+
+    <uu-footer></uu-footer>
 </div>
 
+<script type="text/javascript" src="/static/js/vue.min.js"></script>
+<script type="text/javascript" src="/static/js/main.js"></script>
 <script>
   // cafe babe
   var console = window.console || {};
   console.log = console.log || function(){};
   console.log("%c cafe babe", "color: green; font-size: large; font-style: italic;");
-
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-63341508-1', 'auto');
-  ga('send', 'pageview');
-
 </script>
 </body>
 </html>

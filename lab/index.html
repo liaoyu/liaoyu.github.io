@@ -16,66 +16,29 @@
 <body>
 
 <div id="wrapper">
-    <header id="site-header">
-        <div id="nav-bar">
-            <a href="/" id="logo"><h1>L君还在说之乎者也</h1></a>
-            <nav>
-                <ul id="nav">
-                    <li><a href="/blog/">Blog</a></li>
-                    <li><a href="/lab/">Lab</a></li>
-                    <li><a href="/about/">About</a></li>
-                </ul>
-            </nav>
-            <div style="clear: both;"></div>
-        </div>
-    </header>
+    <uu-nav curr="lab"></uu-nav>
+
     <div id="container">
         <div class="description">
             下面的代码示例是由我平时想着实现某个效果、练习某个好玩的技术，或者从别人那看到有意思的程序想自己实现一遍，
             亦或是出于无聊打发时间来写写代码，自诩程序员的日常。
         </div>
         <div class="panel">
-            <p class="title">Show me the code!</p>
-            <ul class="item-list">
-                <li><a href="js-terminal/index.html">JavaScript Command Line Terminal - 2015-04-20</a></li>
-                <li><a href="morse-code/index.html">Morse Code Translator - 2015-03-14</a></li>
-            </ul>
-            <p class="title">Games</p>
-            <ul class="item-list">
-                <li><a href="game/game-of-life.html">Game of Life - 2014-11-16</a></li>
-            </ul>
-            <p class="title">Components</p>
-            <ul class="item-list">
-                <li><a href="ccl-demo/">CommentCoreLibrary库实现弹幕 - 2016-03-10</a></li>
-                <li><a href="components/pure-css-image-slider.html">Image Slider (Pure CSS) - 2015-07-26</a></li>
-                <li><a href="components/simple-drag.html">Simple Drag - 2015-07-02</a></li>
-                <li><a href="components/image-slider.html">Image Slider - 2015-06-16</a></li>
-                <li><a href="components/javascript-tabs.html">JavaScript Tabs - 2015-06-15</a></li>
-                <li><a href="components/pure-css-multi-level-drop-down-menus.html">Multi-Level Drop Down Menus (Pure CSS) - 2015-06-13</a></li>
-                <li><a href="components/multi-level-drop-down-menus.html">Multi-Level Drop Down Menus (Native JavaScript) - 2015-06-12</a></li>
-                <li><a href="components/simple-drop-down-menus.html">Simple Drop Down Menus (Native JavaScript) - 2015-06-11</a></li>
-                <li><a href="components/performance-rules-categories.html">Web Pages Performance Rules Categories - 2015-06-09</a></li>
-            </ul>
-            <p class="title">Tools</p>
-            <ul class="item-list">
-                <li><a href="tools/sentence-to-url.html">Parse English Sentences To URL - 2015-05-21</a></li>
-            </ul>
+            <template v-for="articles in labs">
+              <p class="title">{{ articles.category }}</p>
+              <ul class="item-list">
+                <li v-for="lab in articles.items">
+                  <a href="{{ lab.url }}">{{ lab.title }} - {{ lab.datetime }}</a>
+                </li>
+              </ul>
+            </template>
         </div>
     </div>
-    <footer id="footer">
-        <p>Copyright &copy; 2014-2015 . Powered by liaoyu.</p>
-    </footer>
+
+    <uu-footer></uu-footer>
 </div>
 
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-63341508-1', 'auto');
-  ga('send', 'pageview');
-
-</script>
+<script type="text/javascript" src="/static/js/vue.min.js"></script>
+<script type="text/javascript" src="/static/js/main.js"></script>
 </body>
 </html>
