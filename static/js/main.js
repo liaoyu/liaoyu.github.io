@@ -113,43 +113,43 @@ var db = {
 
 // 导航栏
 Vue.component('uu-nav', {
-  template: `
-    <header id="site-header">
-        <div id="nav-bar">
-            <a href="/" id="logo"><h1>L君还在说之乎者也</h1></a>
-            <nav>
-                <ul id="nav">
-                    <li :class="{ curr: isBlog }"><a href="/blog/">Blog</a></li>
-                    <li :class="{ curr: isLab }"><a href="/lab/">Lab</a></li>
-                    <li :class="{ curr: isAbout }"><a href="/about/">About</a></li>
-                </ul>
-            </nav>
-            <div style="clear: both;"></div>
-        </div>
-    </header>`,
-    data() {
-      const navObj = {
-        isBlog: false,
-        isLab: false,
-        isAbout: false
-      }
+  template:
+    '<header id="site-header">' +
+        '<div id="nav-bar">' +
+            '<a href="/" id="logo"><h1>L君还在说之乎者也</h1></a>' +
+            '<nav>' +
+                '<ul id="nav">' +
+                    '<li :class="{ curr: isBlog }"><a href="/blog/">Blog</a></li>' +
+                    '<li :class="{ curr: isLab }"><a href="/lab/">Lab</a></li>' +
+                    '<li :class="{ curr: isAbout }"><a href="/about/">About</a></li>' +
+                '</ul>' +
+            '</nav>' +
+            '<div style="clear: both;"></div>' +
+        '</div>' +
+    '</header>',
+  data: function () {
+    var navObj = {
+      isBlog: false,
+      isLab: false,
+      isAbout: false
+    }
 
-      if (this.curr) {
-        let tmp = 'is' + this.curr[0].toUpperCase() + this.curr.slice(1);
-        navObj[tmp] = true;
-      }
+    if (this.curr) {
+      var tmp = 'is' + this.curr[0].toUpperCase() + this.curr.slice(1);
+      navObj[tmp] = true;
+    }
 
-      return navObj;
-    },
-    props: ['curr']
+    return navObj;
+  },
+  props: ['curr']
 })
 
 // 底部栏
 Vue.component('uu-footer', {
-  template: `
-    <footer id="footer">
-        <p>Copyright &copy; 2014-2016 . Powered by liaoyu.</p>
-    </footer>`
+  template:
+    '<footer id="footer">' +
+        '<p>Copyright &copy; 2014-2016 . Powered by liaoyu.</p>' +
+    '</footer>'
 })
 
 // 实例化组件
