@@ -9,6 +9,6 @@
 # install
 npm install
 
-# browser sync
+# http-server
 npm run dev
 ```
