@@ -4,7 +4,7 @@
   "description": "Django Liao Home Page",
   "main": "index.html",
   "scripts": {
-    "dev": "browser-sync start --s --f 'about' 'blog' 'lab' 'static' 'index.html'",
+    "dev": "http-server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -20,8 +20,8 @@
   "bugs": {
     "url": "https://github.com/liaoyu/liaoyu.github.io/issues"
   },
-  "homepage": "https://github.com/liaoyu/liaoyu.github.io#readme",
+  "homepage": "http://www.neatap.com/",
   "devDependencies": {
-    "browser-sync": "^2.12.3"
+    "http-server": "^0.9.0"
   }
 }
