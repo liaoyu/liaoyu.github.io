@@ -49,7 +49,7 @@
   }
 
   // Hide body until we're done fiddling with the DOM
-  document.body.style.display = 'none';
+  // document.body.style.display = 'none';
 
   //////////////////////////////////////////////////////////////////////
   //
@@ -133,7 +133,7 @@
   }
 
   // All done - show body
-  document.body.style.display = '';
+  // document.body.style.display = '';
 
 
 })(window, document);
