@@ -126,7 +126,13 @@ a:hover {
 /*media queries*/
 @media screen and (min-height: 500px) {
     #container {
-        min-height: 500px;
+        min-height: 360px;
+    }
+}
+
+@media screen and (min-height: 750px) {
+    #container {
+        min-height: 600px;
     }
 }
 
