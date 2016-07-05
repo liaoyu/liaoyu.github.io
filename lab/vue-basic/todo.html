@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue.js 初体验</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" type="text/css" href="./css/demo.css">
+</head>
+<body>
+
+<h2>Todo List</h2>
+
+<div id="app">
+    <input type="text" v-model="newTodo" v-on:keyup.enter="addTodo" placeholder="回车键添加">
+    <ul>
+        <li v-for="todo in todos">
+            <span>{{ todo.text }}</span>
+            <button v-on:click="removeTodo($index)">X</button>
+        </li>
+    </ul>
+</div>
+
+
+<script type="text/javascript" src="/static/vendor/vue.min.js"></script>
+<script type="text/javascript">
+
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            newTodo: '',
+            todos: [
+                {text: 'practice vue.js well.'}
+            ]
+        },
+        methods: {
+            addTodo: function() {
+                var todo = this.newTodo.trim();
+                
+                if (todo) {
+                    this.todos.push({text: todo});
+                    this.newTodo = '';
+                }
+            },
+            removeTodo: function(index) {
+                this.todos.splice(index, 1);
+            }
+        }
+    });
+</script>
+</body>
+</html>

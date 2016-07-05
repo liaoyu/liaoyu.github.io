@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue.js 初体验</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" type="text/css" href="./css/demo.css">
+</head>
+<body>
+
+<h2>组件</h2>
+
+<div id="app">
+    <my-component></my-component>
+</div>
+
+<template id="tmpl">
+    <ul>
+        <li v-for="n in numbers">
+            {{ n }}
+        </li>
+    </ul>
+</template>
+
+<script type="text/javascript" src="/static/vendor/vue.min.js"></script>
+<script type="text/javascript">
+
+    Vue.component('my-component', {
+        template: '#tmpl',
+        data: function() {
+            return {
+                numbers : [1, 2, 3]
+            }
+        }
+    });
+
+    var vm = new Vue({
+        el: '#app'
+    });
+</script>
+</body>
+</html>

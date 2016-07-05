@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue.js 初体验</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" type="text/css" href="./css/demo.css">
+</head>
+<body>
+
+<h2>列表渲染</h2>
+
+<div id="app">
+    <table>
+        <tr v-for="user in users">
+            <td>{{ user.username }}</td>
+            <td>{{ user.age }}</td>
+            <td>{{ user.note }}</td>
+        </tr>
+    </table>
+
+    <ul>
+        <li v-for="n in 10">{{ n }}</li>
+    </ul>
+</div>
+
+<script type="text/javascript" src="/static/vendor/vue.min.js"></script>
+<script type="text/javascript">
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            users: [
+                {
+                    username: 'django',
+                    age: 18,
+                    note: 'blablabla'
+                },
+                {
+                    username: 'no one',
+                    age: 0,
+                    note: 'no one is every one'
+                }
+            ]
+        }
+    });
+
+</script>
+</body>
+</html>

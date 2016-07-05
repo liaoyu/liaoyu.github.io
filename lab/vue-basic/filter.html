@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue.js 初体验</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" type="text/css" href="./css/demo.css">
+</head>
+<body>
+
+<h2>filterBy</h2>
+
+<div id="filter-by-example">
+  <input v-model="name">
+  <ul>
+    <li v-for="user in users | filterBy name in 'name'">
+      {{ user.name }}
+    </li>
+  </ul>
+</div>
+
+<h2>orderBy</h2>
+
+<div id="orderby-example">
+    <ul>
+      <li v-for="user in users | orderBy 'name' -1">
+        {{ user.name }}
+      </li>
+    </ul>
+</div>
+
+<script type="text/javascript" src="/static/vendor/vue.min.js"></script>
+<script type="text/javascript">
+
+new Vue({
+  el: '#filter-by-example',
+  data: {
+    name: '',
+    users: [
+      { name: 'Bruce' },
+      { name: 'Chuck' },
+      { name: 'Jackie' }
+    ]
+  }
+});
+
+new Vue({
+  el: '#orderby-example',
+  data: {
+    order: 1,
+    users: [{ name: 'Bruce' }, { name: 'Chuck' }, { name: 'Jackie' }]
+  }
+})
+</script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue.js 初体验</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" type="text/css" href="./css/demo.css">
+    <style type="text/css">
+        .normal {
+            font-size: 20px;
+        }
+
+        .class-a {
+            color: orange;
+        }
+
+        .class-b {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<h2>class与style绑定</h2>
+
+<div id="app">
+    <p class="normal" v-bind:class="{'class-a': isA, 'class-b': isB}">class object</p>
+    
+    <p class="normal" v-bind:class="[classA, classB]">class array</p>
+
+    <p style="color: orange;" v-bind:style="styleObj">style object</p>
+</div>
+
+<script type="text/javascript" src="/static/vendor/vue.min.js"></script>
+<script type="text/javascript">
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            isA: true,
+            isB: false,
+            classA: 'class-a',
+            classB: 'class-b',
+            styleObj: {
+                color: 'red',
+                fontSize: '24px'
+            }
+        }
+    });
+</script>
+</body>
+</html>

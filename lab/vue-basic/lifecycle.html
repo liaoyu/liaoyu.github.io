@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue.js 初体验</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" type="text/css" href="./css/demo.css">
+</head>
+<body>
+
+<h2>生命周期</h2>
+
+<div id="app">
+    <p>{{ msg }}</p>
+</div>
+
+<script type="text/javascript" src="/static/vendor/vue.min.js"></script>
+<script type="text/javascript">
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            msg: ''
+        },
+        created: function() {
+            console.log('created');
+            this.msg = 'blablabla';
+        },
+        ready: function() {
+            console.log('ready');
+        }
+    });
+
+</script>
+</body>
+</html>

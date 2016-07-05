@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue.js 初体验</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" type="text/css" href="./css/demo.css">
+</head>
+<body>
+
+<h2>数据绑定</h2>
+
+<div id="app">
+    <p>{{ msg }}</p>
+
+    <p>{{* one_msg }}</p>
+
+    <p>{{{ raw_html }}}</p>
+
+    <p id="comment_{{ id }}">comment id</p>
+
+    <p>number: {{ number + 1 }}</p>
+
+    <p>{{ ok ? 'yes' : 'no' }}</p>
+    
+    <p>{{ message.split('').reverse().join('') }}</p>
+</div>
+
+<script type="text/javascript" src="/static/vendor/vue.min.js"></script>
+<script type="text/javascript">
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            msg: 'django',
+            one_msg: 'only you.',
+            raw_html: '<h1>row html.</h1>',
+            id: 'aeli392afellafe',
+            number: 1,
+            ok: false,
+            message: 'i see you'
+        }
+    });
+
+</script>
+</body>
+</html>

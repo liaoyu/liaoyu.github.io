@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue.js 初体验</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" type="text/css" href="./css/demo.css">
+    <style type="text/css">
+        .expand-transition {
+            transition: all .5s ease;
+            padding: 20px;
+            background-color: #f2f2f2;
+            width: 120px;
+            margin-top: 10px;
+        }
+
+        .expand-enter, .expand-leave {
+            width: 0;
+            padding: 0;
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+
+<h2>过渡</h2>
+
+<div id="app">
+    <button v-on:click="expand">expand</button>
+
+    <div v-show="show" transition="expand">
+        transition content
+    </div>
+</div>
+
+<script type="text/javascript" src="/static/vendor/vue.min.js"></script>
+<script type="text/javascript">
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            show: true
+        },
+        methods: {
+            expand: function() {
+                this.show = !this.show;
+            }
+        }
+    });
+</script>
+</body>
+</html>

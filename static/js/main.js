@@ -107,6 +107,16 @@ var db = {
           title: 'Parse English Sentences To URL'
         }
       ]
+    },
+    {
+      category: 'Tutorials',
+      items: [
+        {
+          url: 'vue-basic/',
+          datetime: '2016-07-05',
+          title: 'Vue.js basic tutorial demos'
+        }
+      ]
     }
   ]
 }
