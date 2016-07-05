@@ -1,4 +1,4 @@
-### Homepage: [www.neatap.com](www.neatap.com)
+### [www.neatap.com](www.neatap.com)
 
 - Blog
 - Lab
