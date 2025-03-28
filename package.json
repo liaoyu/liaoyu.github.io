@@ -20,7 +20,7 @@
   "bugs": {
     "url": "https://github.com/liaoyu/liaoyu.github.io/issues"
   },
-  "homepage": "http://www.neatap.com/",
+  "homepage": "https://liaoyu.github.io/",
   "devDependencies": {
     "http-server": "^0.9.0"
   }
